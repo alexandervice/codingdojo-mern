@@ -1,1 +1,31 @@
-problem 1
+problem 1)
+
+	console.log(randomcar) - 'Tesla'
+	console.log(otherRandomCar) - 'Mercedes'
+
+problem 2)
+
+	console.log(name) - this is a syntax error, there is no variable called name
+	console.log(othername) - 'Elon'
+
+problem 3)
+
+	console.log(password) - 12345 (this is because we had already declared password prior to the next line)
+	console.log(hashedPassword) - syntax error, there is no variable in person called password for us to call on
+
+problem 4)
+
+	first = 2
+	second = 5
+	third = 2
+
+	console.log(first == second) - false (2 does not equal 5)
+	console.log(first == third) - true (2 equals 2)
+
+problem 5)
+
+	console.log(key) - 'value'
+	console.log(secondKey) - [1,5,1,8,3,3]
+	console.log(secondKey[0]) - 1
+	console.log(willThisWork) - 5
+
