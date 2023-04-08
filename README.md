@@ -1,2 +1,4 @@
 # codingdojo-mern
-The Coding Dojo Full Stack Javascript assignments
+All of my Coding Dojo Full Stack Javascript assignments
+
+MongoDB, Express, React, Node
