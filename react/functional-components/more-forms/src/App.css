@@ -10,9 +10,10 @@
   margin-top: 20px;
 }
 
-h4 {
-  margin: auto;
+.validation {
+  color: red;
 }
+
 .userClass {
   display: flex;
   flex-direction: column;

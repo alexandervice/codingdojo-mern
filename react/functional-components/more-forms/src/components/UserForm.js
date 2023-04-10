@@ -71,7 +71,16 @@ const UserForm = () => {
             setPasswordError("Password must be at least 8 characters");
         }
         else {
-            setEmailError("");
+            setPasswordError("");
+        }
+    }
+    const handleConfirmPassword = (e) => {
+        setConfirmPassword(e.target.value);
+        if(password !== confirmPassword) {
+            setConfirmPasswordError("Passwords must match");
+        } 
+        else {
+            setConfirmPasswordError("");
         }
     }
     return (
@@ -120,7 +129,7 @@ const UserForm = () => {
                 </div>
                 <div>
                     <label>Confirm Password:</label>
-                    <input className='formInput' type='password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
+                    <input className='formInput' type='password' value={confirmPassword} onChange={handleConfirmPassword}/>
                 </div>
             </form>
         </div>
