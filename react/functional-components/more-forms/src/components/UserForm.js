@@ -53,13 +53,25 @@ const UserForm = () => {
     const handleEmail = (e) => {
         setEmail(e.target.value);
         if(e.target.value.length < 1) {
-            setLastNameError("Last Name is required");
+            setEmailError("Email is required");
         } 
-        else if(e.target.value.length < 2) {
-            setLastNameError("Last Name must be at least 2 characters");
+        else if(e.target.value.length < 5) {
+            setEmailError("Email must be at least 5 characters");
         }
         else {
-            setLastNameError("");
+            setEmailError("");
+        }
+    }
+    const handlePassword = (e) => {
+        setPassword(e.target.value);
+        if(e.target.value.length < 1) {
+            setPasswordError("Password is required");
+        } 
+        else if(e.target.value.length < 8) {
+            setPasswordError("Password must be at least 8 characters");
+        }
+        else {
+            setEmailError("");
         }
     }
     return (
@@ -93,8 +105,18 @@ const UserForm = () => {
                     <input className='formInput' type='text' value={email} onChange={handleEmail}/>
                 </div>
                 <div>
+                    {
+                        passwordError ?
+                        <p className='validation'>{passwordError}</p> :
+                        ""
+                    }
+                    {
+                        confirmPasswordError ?
+                        <p className='validation'>{confirmPasswordError}</p> :
+                        ""
+                    }
                     <label>Password:</label>
-                    <input className='formInput' type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+                    <input className='formInput' type='password' value={password} onChange={handlePassword}/>
                 </div>
                 <div>
                     <label>Confirm Password:</label>
