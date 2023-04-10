@@ -10,7 +10,6 @@ const UserForm = () => {
     const [password, setPassword] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [confirmPasswordError, setConfirmPasswordError] = useState("");
     const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
 
     const createUser = (e) => {
@@ -73,15 +72,6 @@ const UserForm = () => {
             setPasswordError("");
         }
     }
-    const handleConfirmPassword = (e) => {
-        setConfirmPassword(e.target.value);
-        if(password !== confirmPassword) {
-            setConfirmPasswordError("Passwords must match");
-        } 
-        else {
-            setConfirmPasswordError("");
-        }
-    }
     return (
         <div className='userClass'>
             <form className='createUser' onSubmit={ createUser }>
@@ -124,8 +114,8 @@ const UserForm = () => {
                         ""
                     }
                     {
-                        confirmPasswordError ?
-                        <p className='validation'>{confirmPasswordError}</p> :
+                        confirmPassword !== password ?
+                        <p className='validation'>Passwords must match.</p> :
                         ""
                     }
                     <label>Password:</label>
@@ -133,9 +123,19 @@ const UserForm = () => {
                 </div>
                 <div>
                     <label>Confirm Password:</label>
-                    <input className='formInput' type='password' value={confirmPassword} onChange={handleConfirmPassword}/>
+                    <input className='formInput' type='password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
                 </div>
+
+                {/* <input className='submitInput' type={formCompletion} value='Submit Form' /> */}
             </form>
+            <h4>Your Form Data:</h4>
+            <div className='PersonCard'>
+                <p>First Name:<b> {firstName}</b> </p>
+                <p>Last Name:<b> {lastName}</b> </p>
+                <p>Email:<b> {email}</b> </p>
+                <p>Password:<b> {password}</b> </p>
+                <p>Confirm Password:<b> {confirmPassword}</b> </p>
+            </div>
         </div>
     );
 }

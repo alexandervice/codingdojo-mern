@@ -8,10 +8,18 @@
 .formInput {
   margin-left: 10px;
   margin-top: 20px;
+  width: 300px;
+}
+
+.submitInput {
+  align-self: center;
+  margin-left: 80px;
+  margin-top: 20px;
 }
 
 .validation {
   color: red;
+  text-align: center;
 }
 
 .userClass {
