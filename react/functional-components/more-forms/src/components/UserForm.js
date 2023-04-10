@@ -50,6 +50,18 @@ const UserForm = () => {
             setLastNameError("");
         }
     }
+    const handleEmail = (e) => {
+        setEmail(e.target.value);
+        if(e.target.value.length < 1) {
+            setLastNameError("Last Name is required");
+        } 
+        else if(e.target.value.length < 2) {
+            setLastNameError("Last Name must be at least 2 characters");
+        }
+        else {
+            setLastNameError("");
+        }
+    }
     return (
         <div className='userClass'>
             <form className='createUser' onSubmit={ createUser }>
@@ -78,7 +90,7 @@ const UserForm = () => {
                         ""
                     }
                     <label>Email:</label>
-                    <input className='formInput' type='text' value={email} onChange={(e) => setEmail(e.target.value)}/>
+                    <input className='formInput' type='text' value={email} onChange={handleEmail}/>
                 </div>
                 <div>
                     <label>Password:</label>
