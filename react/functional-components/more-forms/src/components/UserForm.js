@@ -24,7 +24,6 @@ const UserForm = () => {
         setConfirmPassword("");
         setHasBeenSubmitted(true);
     };
-
     // validations
     const handleFirstName = (e) => {
         setFirstName(e.target.value);
@@ -86,6 +85,11 @@ const UserForm = () => {
     return (
         <div className='userClass'>
             <form className='createUser' onSubmit={ createUser }>
+                {
+                    hasBeenSubmitted ?
+                    <h3> Thank you for submitting the form! </h3> :
+                    <h3> Welcome, please complete the following form. </h3>
+                }
                 <div>
                     {
                         firstNameError ?
