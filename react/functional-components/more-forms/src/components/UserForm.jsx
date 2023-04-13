@@ -12,7 +12,7 @@ const UserForm = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
 
-    // // alternate option
+    // // alternate option (make sure your label has an htmlFor and the input has a name)
     // const [user, setUser] = useState({
     //     firstName: "",
     //     lastName: "",
@@ -99,8 +99,8 @@ const UserForm = () => {
                         <p className='validation'>{firstNameError}</p> :
                         ""
                     }
-                    <label>First Name:</label>
-                    <input className='formInput' type='text' value={firstName} onChange={handleFirstName}/>
+                    <label htmlFor='firstName'>First Name:</label>
+                    <input name='firstName' className='formInput' type='text' value={firstName} onChange={handleFirstName}/>
                 </div>
                 <div>
                     {
