@@ -12,6 +12,19 @@ const UserForm = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
 
+    // // alternate option
+    // const [user, setUser] = useState({
+    //     firstName: "",
+    //     lastName: "",
+    //     email: "",
+    //     password: "",
+    //     confirmPassword: ""
+    // })
+
+    // const changeUser = (e) => {
+    //     setUser({...user, [e.target.name]: e.target.value})
+    // }
+
     const createUser = (e) => {
         e.preventDefault();
         const newUser = {firstName, lastName, email, password}
