@@ -1,13 +1,21 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 const RenderBoxes = (props) => {
-    const [box, setBox] = useState({
+    const {boxData} = props;
 
-    })
     return (
         <div>
             {
-                boxes.map
+                boxData.map((box, index) =>(
+                    <div key={index} style={{
+                        display: "inline-block",
+                        margin: "10px",
+                        height: box.dimension,
+                        width: box.dimension,
+                        backgroundColor: box.color
+                    }}>
+                    </div>
+                ))
             }
         </div>
     )
