@@ -1,17 +1,15 @@
 import './App.css';
 import React, {useState} from 'react';
-import CreateBox from './components/CreateBox';
+import RenderBoxes from './components/RenderBoxes';
 import DeclareColor from './components/DeclareColor';
 
 function App() {
-  const [currentColor, setCurrentColor] = useState("")
-  const changeColor = (newColor) => {
-    setCurrentColor(newColor)
-  }
+  const [boxData, setBoxData] = useState([])
+
   return (
     <div className="App">
-      <DeclareColor onNewColor = {changeColor} />
-      <CreateBox color={currentColor}/>
+      <DeclareColor boxData = {boxData} setBoxData = {setBoxData}/>
+      <RenderBoxes boxData={boxData}/>
     </div>
   );
 }
