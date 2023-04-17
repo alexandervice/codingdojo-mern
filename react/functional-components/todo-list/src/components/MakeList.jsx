@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const MakeList = () => {
+const MakeList = (props) => {
+  const {todoArray, setTodoArray} = props;
+  
+  const [todoItem, setTodoItem] = useState("");
+
   return (
     <div>MakeList</div>
   )

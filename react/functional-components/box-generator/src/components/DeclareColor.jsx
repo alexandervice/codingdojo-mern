@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 
 const DeclareColor = (props) => {
-    const {boxData, setBoxData} = props
+    const {boxData, setBoxData} = props;
 
-    const [color, setColor] = useState("#000000")
-    const [dimension, setDimension] = useState(100)
+    const [color, setColor] = useState("#000000");
+    const [dimension, setDimension] = useState(100);
     
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -15,7 +15,7 @@ const DeclareColor = (props) => {
             }
         ]);
         setColor("#000000");
-        setDimension(100) 
+        setDimension(100);
     }
     return (
         <div>
