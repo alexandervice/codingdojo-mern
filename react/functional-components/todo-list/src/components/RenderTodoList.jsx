@@ -10,15 +10,16 @@ const RenderTodoList = (props) => {
     setTodoArray(newTodo);
   }
   
+  const toggle = (complete) => {return !complete}
+
   const markComplete = (e) => {
-    e.preventDefault();
-    console.log(e.target.value);
-    const updatedArray = todoArray.map((item) => (
+    const updatedArray = todoArray.map(item => (
       item.itemIndex === Number(e.target.value) ?
-      item.complete = true :
-      item.complete = false
-    ))
-    setTodoArray(updatedArray)
+      {...item, complete: toggle(item.complete)} :
+      {...item}
+    ));
+    console.log(updatedArray);
+    setTodoArray(updatedArray);
   }
 
   return (
@@ -27,7 +28,11 @@ const RenderTodoList = (props) => {
         todoArray.map((list, index) => (
           <div key={index} className='todoItem'> 
             <input className='checkbox' type='checkbox' value={list.itemIndex} onChange={markComplete}></input>
-            <p className='item'>{list.todoItem}</p>
+            {list.complete === false ?
+            <p className='item'>{list.todoItem}</p> :
+            <p className='item' style={{textDecoration: "line-through"}}>{list.todoItem}</p>
+            }
+            
             <button className='btn delete' value={list.itemIndex} onClick={removeTodoItem}>Delete</button>
           </div>
         ))
