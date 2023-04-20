@@ -2,6 +2,32 @@
   text-align: center;
 }
 
+.allTabLabels {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+
+}
+
+.tabLabel {
+  background-color: #d3d4d6;
+  border: solid black;
+  height: 30px;
+  width: 100px;
+}
+
+.tabSelected {
+  background-color: #61dafb;
+}
+
+.tabContent {
+  margin: auto;
+  border: solid black;
+  height: 50px;
+  width: 295px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

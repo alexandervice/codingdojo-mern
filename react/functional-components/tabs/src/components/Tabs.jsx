@@ -7,15 +7,19 @@ const Tabs = ({tabArray, tabIndex, setTabIndex}) => {
     setTabIndex(e.target.value);
   }
   return (
-    <div>
-      {tabArray.map((list, index) => (
-        <div key={index} className='tab'>
-          <button className='tabLabel' value={index+1} onClick={updateTabIndex}>{list.label}</button>
-        </div>
-      ))
-      }
+    <div className='tab'>
+      <div className='allTabLabels'>
+        {tabArray.map((list, index) => (
+          <div key={index} >
+            {index === Number(tabIndex) ? 
+            <button className='tabLabel tabSelected' value={index} onClick={updateTabIndex}>{list.label}</button> :
+            <button className='tabLabel' value={index} onClick={updateTabIndex}>{list.label}</button>}
+          </div>
+        ))
+        }
+      </div>
       <div className="tabContent">
-        {tabArray.content[tabIndex]}
+        {tabArray[tabIndex].content}
       </div>
     </div>
   )
