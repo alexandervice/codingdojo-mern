@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Tabs = () => {
+const Tabs = ({tabArray}) => {
   return (
     <div>Tabs</div>
   )
