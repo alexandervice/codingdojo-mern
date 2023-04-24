@@ -14,7 +14,7 @@ function fiveHeads() {
     if(headsCount > 5) {
       resolve(`It took ${attempts} to flip heads 5 times.`)
     } else {
-      reject("Flipping the coin again");
+      reject(`"Flipping the coin again on attempt # ${attempts}"`);
     }
   });
 }
