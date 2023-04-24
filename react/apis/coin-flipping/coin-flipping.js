@@ -1,20 +1,23 @@
 function tossCoin() {
     return Math.random() > 0.5 ? "heads" : "tails";
   }
-  
+
+
 
 function fiveHeads() {
-  let attempts = 0;
-  let headsCount = 0;
   return new Promise( (resolve, reject) => {
-    attempts++;
-    let result = tossCoin();
-    console.log(`${result} was flipped`)
-    result === "heads" ? headsCount++ : headsCount += 0;
-    if(headsCount > 5) {
-      resolve(`It took ${attempts} to flip heads 5 times.`)
-    } else {
-      reject(`"Flipping the coin again on attempt # ${attempts}"`);
+    let attempts = 0;
+    let headsCount = 0;
+    while(headsCount < 5 && attempts < 100) {
+      attempts++;
+      let result = tossCoin();
+      result === "heads" ? headsCount++ : headsCount = 0;
+    }
+    if(headsCount == 5) {
+      resolve(`It took ${attempts} times to flip heads ${headsCount} times in a row.`)
+    } 
+    else {
+      reject(`"Uh oh the coin has been flipped ${attempts} times. Aborting code."`);
     }
   });
 }
