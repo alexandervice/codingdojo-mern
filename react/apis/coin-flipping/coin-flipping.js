@@ -4,15 +4,17 @@ function tossCoin() {
   
 
 function fiveHeads() {
+  let attempts = 0;
+  let headsCount = 0;
   return new Promise( (resolve, reject) => {
-    let attempts = 0;
-    let headsCount = 0;
-    while(headsCount < 5) {
-      attempts++;
-      let result = tossCoin();
-      console.log(`${result} was flipped`)
-      result === heads ? headsCount++ : headsCount += 0;
-      headsCount
+    attempts++;
+    let result = tossCoin();
+    console.log(`${result} was flipped`)
+    result === heads ? headsCount++ : headsCount += 0;
+    if(headsCount > 5) {
+      resolve(`It took ${attempts} to flip heads 5 times.`)
+    } else {
+      reject("Flipping the coin again");
     }
   });
 }
@@ -20,4 +22,4 @@ function fiveHeads() {
 fiveHeads()
   .then( res => console.log(res) )
   .catch( err => console.log(err) );
-console.log( "When does this run now?" );
+console.log( "This should run before heads is flipped 5 times" );
