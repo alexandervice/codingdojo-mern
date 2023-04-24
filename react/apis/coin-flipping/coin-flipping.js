@@ -10,7 +10,7 @@ function fiveHeads() {
     attempts++;
     let result = tossCoin();
     console.log(`${result} was flipped`)
-    result === heads ? headsCount++ : headsCount += 0;
+    result === "heads" ? headsCount++ : headsCount += 0;
     if(headsCount > 5) {
       resolve(`It took ${attempts} to flip heads 5 times.`)
     } else {
