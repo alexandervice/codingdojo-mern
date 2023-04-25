@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Luke APIwalker
+
+This project uses https://swapi.dev/ and axios to fetch star wars API data to create a search page for a user to find desired information about Star Wars.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
