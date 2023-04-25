@@ -16,12 +16,12 @@ const Planets = () => {
       .catch(err=>{
         console.log(err);
       });
-  }, []);
+  }, [index]);
 
   return (
     <div>
       <h2>{planet.name}</h2>
-      
+
     </div>
   )
 }
