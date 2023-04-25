@@ -1,5 +1,11 @@
 # Routing Practice
 
+A simple react app where you can naigate to the following routes:
+1. /home - Displays a generic welcome page
+2. /"#" - displays a webpage with any number that is typed in as the "#"
+3. /"string" - displays a webpage with whatever string was typed in
+4. /"string"/"color1"/"color2" - displays a webpage with the string with the text color being color1 and the background color being color2.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
