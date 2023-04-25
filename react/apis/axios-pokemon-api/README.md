@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Axios Pokemon API
+
+This project will generate all 1010 pokemon (as of 4/25/2023) it utilizes https://pokeapi.co/ and axios to fetch the data.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
