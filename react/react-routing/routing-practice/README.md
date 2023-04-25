@@ -1,6 +1,6 @@
 # Routing Practice
 
-A simple react app where you can naigate to the following routes:
+A simple react app where you can naigate to the following routes using react-router-dom:
 1. /home - Displays a generic welcome page
 2. /"#" - displays a webpage with any number that is typed in as the "#"
 3. /"string" - displays a webpage with whatever string was typed in
