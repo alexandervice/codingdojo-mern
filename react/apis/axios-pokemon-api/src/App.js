@@ -21,7 +21,7 @@ function App() {
       {
         pokemonList.map((list, index) => {
           return(
-            <li key={index}>{list.name}</li>
+            <p key={index}>{list.name}</p>
           )
         })
       }
