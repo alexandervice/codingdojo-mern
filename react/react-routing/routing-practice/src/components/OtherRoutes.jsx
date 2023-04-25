@@ -8,8 +8,10 @@ const OtherRoutes = (props) => {
   return (
     <div>
       {
-        isNaN(input) ?
+        color1 ?
         <p style={{color: color1, backgroundColor: color2}}>The word is: {input}</p> :
+        isNaN(input) ?
+        <p>The word is: {input}</p> :
         <p>The number is: {input}</p>
       }
     </div>

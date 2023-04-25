@@ -12,6 +12,7 @@ function App() {
       </div>
       <Routes>
         <Route path="/home" element={<Home/>}/>
+        <Route path="/:input" element={<OtherRoutes/>}/>
         <Route path="/:input/:color1/:color2" element={<OtherRoutes/>}/>
       </Routes>
     </BrowserRouter>
