@@ -1,7 +1,7 @@
 import React from 'react'
 import {useParams} from "react-router-dom"
 
-const OtherRoutes = (props) => {
+const OtherRoutes = () => {
   const{input} = useParams();
   const{color1} = useParams();
   const{color2} = useParams();
