@@ -7,9 +7,12 @@ import './App.css';
 function App() {
   return (
     <BrowserRouter>
+      <div>
+        <Link to={"/home"}>Go Home</Link>
+      </div>
       <Routes>
         <Route path="/home" element={<Home/>}/>
-        <Route path={`/${OtherRoutes}`} element={<OtherRoutes/>}/>
+        <Route path="/:input/:color1/:color2" element={<OtherRoutes/>}/>
       </Routes>
     </BrowserRouter>
   );

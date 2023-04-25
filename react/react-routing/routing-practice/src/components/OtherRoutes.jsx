@@ -1,9 +1,18 @@
 import React from 'react'
-import {BrowserRouter, Routes, Route, Link} from "react-router-dom"
+import {useParams} from "react-router-dom"
 
-const OtherRoutes = () => {
+const OtherRoutes = (props) => {
+  const{input} = useParams();
+  const{color1} = useParams();
+  const{color2} = useParams();
   return (
-    <div>OtherRoutes</div>
+    <div>
+      {
+        isNaN(input) ?
+        <p style={{color: color1, backgroundColor: color2}}>The word is: {input}</p> :
+        <p>The number is: {input}</p>
+      }
+    </div>
   )
 }
 
