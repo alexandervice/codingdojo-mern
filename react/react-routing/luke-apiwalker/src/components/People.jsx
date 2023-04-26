@@ -8,10 +8,10 @@ const Planets = () => {
   const{index} = useParams();
 
   useEffect(() => {
-    axios.get(`https://swapi.dev/people/${index}`)
+    axios.get(`https://swapi.dev/api/people/${index}`)
       .then(response => {
-        // console.log(response.data.result)
-        setPeople(response.data.results)
+        console.log(response.data)
+        setPeople(response.data)
       })
       .catch(err=>{
         console.log(err);
@@ -21,7 +21,11 @@ const Planets = () => {
   return (
     <div>
       <h2>{people.name}</h2>
-
+      <p>Gender: {people.gender}</p>
+      <p>Height: {people.height}</p>
+      <p>Mass: {people.mass}</p>
+      <p>Skin Color: {people.skin_color}</p>
+      <p>Hair Color: {people.hair_color}</p>
     </div>
   )
 }

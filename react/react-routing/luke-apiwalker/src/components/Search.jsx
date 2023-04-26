@@ -13,18 +13,18 @@ const Search = () => {
   return (
     <div>
       <form className='search' onSubmit={handleSearch}>
-        <div>
+        <div className='searchSelect'>
           <label htmlFor="searchType"></label>
           <select name='searchType' onChange={(e) => setSearchType(e.target.value)}>
             <option value="people">People</option>
             <option value="planets">Planets</option>
           </select>
         </div>
-        <div>
+        <div className='searchId'>
           <label htmlFor="id">ID: </label>
           <input name='id' type="number" value={searchId} onChange={(e) => setSearchId(e.target.value)}/>
         </div>
-        <input type='submit'>Search</input>
+        <input type='submit' value='Search'/>
       </form>
     </div>
   )
