@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import axios from "axios";
-import {useParams} from "react-router-dom"
+import {useParams, useNavigate} from "react-router-dom"
 
 const Planets = () => {
   const [planet, setPlanet] = useState({});
-
+  const navigate = useNavigate();
   const{index} = useParams();
 
   useEffect(() => {
@@ -15,8 +15,9 @@ const Planets = () => {
       })
       .catch(err=>{
         console.log(err);
+        navigate("/error");
       });
-  }, [index]);
+  }, [index, navigate]);
 
   return (
     <div>
