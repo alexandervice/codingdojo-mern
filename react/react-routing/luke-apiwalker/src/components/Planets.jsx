@@ -8,7 +8,7 @@ const Planets = () => {
   const{index} = useParams();
 
   useEffect(() => {
-    axios.get(`https://swapi.dev/${index}`)
+    axios.get(`https://swapi.dev/planets/${index}`)
       .then(response => {
         // console.log(response.data.result)
         setPlanet(response.data.results)
