@@ -12,7 +12,7 @@ const Search = () => {
   }
   return (
     <div>
-      <form className='search' onSubmit={handleSearch}>
+      <form className='search' onSubmit={handleSearch} method='GET'>
         <div className='searchSelect'>
           <label htmlFor="searchType"></label>
           <select name='searchType' onChange={(e) => setSearchType(e.target.value)}>
