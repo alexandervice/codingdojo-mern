@@ -4,20 +4,23 @@ const port = 8000;
 
 // we can create a function to return a random / fake "Product"
 const { faker } = require('@faker-js/faker');
-const createProduct = () => {
-    const newFake = {
-        name: faker.commerce.productName(),
-        price: "$" + faker.commerce.price(),
-        department: faker.commerce.department()
-    };
-    return newFake;
+const createUser = () => {
+  const newFakeUser = {
+    _id: faker.finance.account(5),
+    firstName: faker.name.firstName(),
+    lastName: faker.name.lastName(),
+    email: faker.internet.email(),
+    password: faker.internet.password(),
+    phoneNumber: faker.phone.number(),
+  };
+  return newFakeUser;
 };
     
-const newFakeProduct = createProduct();
-console.log(newFakeProduct);
+const newUser = createUser();
+console.log(newUser);
 
 app.get("/api", (req, res) => {
-  res.json({ message: "Hello World" });
+  res.json(newUser);
 });
 
 // this needs to be below the other code blocks
