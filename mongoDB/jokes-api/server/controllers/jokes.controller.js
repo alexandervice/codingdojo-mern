@@ -1,4 +1,4 @@
-const Joke = require("../modelss/jokes.model");
+const Joke = require("../models/jokes.model");
 
 module.exports.findAllJokes = (req, res) => {
   Joke.find()
