@@ -32,6 +32,7 @@ const ProductForm= () => {
 
   return (
     <div>
+      <h3>Create a New Product</h3>
       <form onSubmit={onSubmitHandler}>
         <h5>
           <label htmlFor="name">Name:</label>
