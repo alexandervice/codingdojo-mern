@@ -45,6 +45,7 @@ const ProductForm= () => {
           <label htmlFor="description">Description:</label>
           <input type="text" name='description' onChange={(e) => setDescription(e.target.value)}/>
         </h5>
+        <input type="submit"/>
       </form>
     </div>
   )
