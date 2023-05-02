@@ -10,16 +10,16 @@ const ProductForm= () => {
   // const [ price, setPrice ] = useState(0)
   // const [ description, setDescription ] = useState("")
   useEffect(()=>{
-      axios.get("http://localhost:8000/api")
-          .then(res=>setProduct(res.data.product))
-          .catch(err=>console.log(err))
+    axios.post("http://localhost:8000/api/products/create")
+      .then(res=>setProduct(res.data.product))
+      .catch(err=>console.log(err))
   }, []);
   return (
-      <div>
-          <h2>Name: {product.name}</h2>
-          <h2>Price: {product.price}</h2>
-          <h2>Description: {product.description}</h2>
-      </div>
+    <div>
+      <h2>Name: {product.name}</h2>
+      <h2>Price: {product.price}</h2>
+      <h2>Description: {product.description}</h2>
+    </div>
   )
 }
 export default ProductForm;
