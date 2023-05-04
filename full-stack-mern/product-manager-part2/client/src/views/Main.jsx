@@ -1,18 +1,17 @@
 import React, { useState } from 'react'
-import axios from 'axios';
-import PersonForm from '../components/ProductForm';
-import PersonList from '../components/PersonList';
+// import axios from 'axios';
+import ProductForm from '../components/ProductForm';
+import ProductList from '../components/ProductList';
 const Main = (props) => {
-    
-    const [people, setPeople] = useState([]);
-    
-    return (
-        <div>
-    	/* PersonForm and Person List can both utilize the getter and setter established in their parent component: */
-           <PersonForm people={people} setPeople={setPeople} />
-            <hr/>
-           <PersonList people={people} setPeople={setPeople} />
-        </div>
-    )
+  
+  const [product, setProduct] = useState([]);
+  
+  return (
+    <div>
+      <ProductForm product={product} setProduct={setProduct}/>
+        <hr/>
+      <ProductList product={product} setProduct={setProduct}/>
+    </div>
+  )
 }
 export default Main;
