@@ -10,10 +10,8 @@ const PersonList = (props) => {
         console.log(res.data);
         setProduct(res.data);
       })
-      .catch((err)=>{
-        console.log(err);
-      })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+      .catch(err=>console.log(err))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   
   return (
