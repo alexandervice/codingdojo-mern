@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Main from "../views/Main"
-import OneProduct from "../components/OneProduct"
+import Main from "./views/Main"
+import OneProduct from "./components/OneProduct"
 // import ProductForm from './components/ProductForm';
 import './App.css';
 
@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* this is the default path */}
-          <Route element={<Main/>} path="/home" default/>
+          <Route element={<Main/>} path="/" default/>
           <Route element={<OneProduct/>} path="/product/:id"/>
         </Routes>
       </BrowserRouter>
