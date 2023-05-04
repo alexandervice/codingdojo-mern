@@ -1,5 +1,7 @@
 import React from 'react';
-import ProductForm from './components/ProductForm';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Main from "../views/Main"
+// import ProductForm from './components/ProductForm';
 import './App.css';
 
 function App() {
