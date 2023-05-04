@@ -1,20 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios';
-const ProductForm= () => {
-  // const [product, setProduct] = useState({
-  //   name: "",
-  //   price: 0,
-  //   description: ""
-  // });
+const ProductForm= (props) => {
+  const [product, setProduct] = props;
+
   const [ name, setName ] = useState("");
   const [ price, setPrice ] = useState(0);
   const [ description, setDescription ] = useState("");
   const [submissionStatus, setSubmissionStatus] = useState(false);
-  // useEffect(()=>{
-  //   axios.post("http://localhost:8000/api/products/create")
-  //     .then(res=>setProduct(res.data.product))
-  //     .catch(err=>console.log(err))
-  // }, []);
 
   const onSubmitHandler = (e) => {
   e.preventDefault();
@@ -28,6 +20,7 @@ const ProductForm= () => {
     .then(res=>{
       console.log(res);
       console.log(res.data);
+      setProduct([...product, res.data])
     })
     .catch(err=>console.log(err))
 }
