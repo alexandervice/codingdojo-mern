@@ -8,7 +8,12 @@ function App() {
   return (
     <div className="App">
       <h1>Product Manager</h1>
-      
+      <BrowserRouter>
+        <Routes>
+          {/* this is the default path */}
+          <Route element={<Main/>} path="/home" default/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
