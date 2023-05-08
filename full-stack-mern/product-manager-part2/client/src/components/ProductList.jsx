@@ -16,7 +16,10 @@ const ProductList = (props) => {
   
   const deleteProduct = (id) => {
     axios.delete(`http://localhost:8000/api/products/delete/${id}`)
-      .then(res => {removeFromDom(id)})
+      .then(res => {
+        window.location.reload(false)
+        removeFromDom(id)
+      })
       .catch(err=>console.log(err))
   }
 
@@ -27,8 +30,8 @@ const ProductList = (props) => {
         return(
           <h5 className='productDetails' key={index}>
             <Link to={`/product/${item._id}`}>{item.name}</Link>
-            <Link to={`/product/edit/${item._id}`}>Edit</Link>
-            <button onClick={(e) => {deleteProduct(item._id)}} >Delete</button>
+            <Link className='productItem' to={`/product/edit/${item._id}`}>Edit</Link>
+            <button className='productItem' onClick={(e) => {deleteProduct(item._id)}} >Delete</button>
           </h5>
         )})
       }

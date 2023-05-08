@@ -31,7 +31,7 @@ const ProductForm= (props) => {
       {submissionStatus ?
       <div>
         <h3>Thank you for submitting the form</h3>
-        <Link to={"/"}>Add a new product</Link>
+        <button onClick={(e) => {(window.location.reload(false))}} >Add New</button>
       </div>
       :
       <div className='productForm'>

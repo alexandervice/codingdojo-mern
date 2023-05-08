@@ -14,8 +14,9 @@ const OneProduct = (props) => {
   const deleteProduct = (id) => {
     axios.delete(`http://localhost:8000/api/products/delete/${id}`)
       .then(res => {
-        removeFromDom(id)
         navigate("/");
+        removeFromDom(id)
+        
       })
       .catch(err=>console.log(err))
   }

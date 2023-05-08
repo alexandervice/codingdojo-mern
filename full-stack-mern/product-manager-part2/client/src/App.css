@@ -9,7 +9,11 @@
 .productDetails {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content:flex-start;
+}
+
+.productItem {
+  margin-left: 15px;
 }
 
 .productForm {
