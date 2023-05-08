@@ -33,11 +33,14 @@ const OneProduct = (props) => {
 
   return (
     <div>
+      <h2>
+      <Link to={"/"}>Home</Link>
+      </h2>
       <h3>Product Name: {product.name}</h3>
       <h5>Price: {product.price}</h5>
       <h5>Description: {product.description}</h5>
-      <Link to={`/product/edit/${id}`}>Edit</Link>
-      <button onClick={(e) => {deleteProduct(id)}} >Delete</button>
+      <Link className='productItem' to={`/product/edit/${id}`}>Edit</Link>
+      <button className='productItem' onClick={(e) => {deleteProduct(id)}} >Delete</button>
     </div>
   );
 }

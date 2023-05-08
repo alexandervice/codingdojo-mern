@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import {Link} from "react-router-dom"
 import axios from 'axios';
 const ProductForm= (props) => {
   const {product, setProduct} = props;
@@ -7,11 +6,11 @@ const ProductForm= (props) => {
   const [ name, setName ] = useState("");
   const [ price, setPrice ] = useState(0);
   const [ description, setDescription ] = useState("");
-  const [submissionStatus, setSubmissionStatus] = useState(false);
+  // const [submissionStatus, setSubmissionStatus] = useState();
 
   const onSubmitHandler = (e) => {
   e.preventDefault();
-  setSubmissionStatus(true);
+  // setSubmissionStatus(true);
   //make a post request to create a new product
   axios.post('http://localhost:8000/api/products/create', {
     name,
@@ -21,19 +20,20 @@ const ProductForm= (props) => {
     .then(res=>{
       // console.log(res);
       // console.log(res.data);
+      window.location.reload(false)
       setProduct([...product, res.data])
     })
     .catch(err=>console.log(err))
 }
 
   return (
-    <div>
-      {submissionStatus ?
-      <div>
-        <h3>Thank you for submitting the form</h3>
-        <button onClick={(e) => {(window.location.reload(false))}} >Add New</button>
-      </div>
-      :
+    // <div>
+    //   {submissionStatus ?
+    //   <div>
+    //     <h3>Thank you for submitting the form</h3>
+    //     <button onClick={(e) => {(window.location.reload(false))}} >Add New</button>
+    //   </div>
+    //   :
       <div className='productForm'>
         <h3>Create a New Product</h3>
         <form onSubmit={onSubmitHandler}>
@@ -52,8 +52,8 @@ const ProductForm= (props) => {
           <input type="submit"/>
         </form>
       </div>
-      }
-    </div>
+    //   }
+    // </div>
   )
 }
 export default ProductForm;
