@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {useParams, Link} from "react-router-dom";
+import {useNavigate, useParams, Link} from "react-router-dom";
 
 const OneProduct = (props) => {
   const [product, setProduct] = useState({});
   const {id} = useParams();
+  const navigate = useNavigate();
 
   const removeFromDom = id => {
     setProduct(product.filter(product => product.id !== id))
@@ -12,7 +13,10 @@ const OneProduct = (props) => {
 
   const deleteProduct = (id) => {
     axios.delete(`http://localhost:8000/api/products/delete/${id}`)
-      .then(res => {removeFromDom(id)})
+      .then(res => {
+        removeFromDom(id)
+        navigate("/");
+      })
       .catch(err=>console.log(err))
   }
 
