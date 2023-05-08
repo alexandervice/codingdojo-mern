@@ -6,6 +6,16 @@ const OneProduct = (props) => {
   const [product, setProduct] = useState({});
   const {id} = useParams();
 
+  const removeFromDom = id => {
+    setProduct(product.filter(product => product.id !== id))
+  }
+
+  const deleteProduct = (id) => {
+    axios.delete(`http://localhost:8000/api/products/delete/${id}`)
+      .then(res => {removeFromDom(id)})
+      .catch(err=>console.log(err))
+  }
+
   useEffect(() => {
     axios.get(`http://localhost:8000/api/products/find/${id}`)
       .then( res => {
@@ -22,6 +32,7 @@ const OneProduct = (props) => {
       <h5>Price: {product.price}</h5>
       <h5>Description: {product.description}</h5>
       <Link to={`/product/edit/${id}`}>Edit</Link>
+      <button onClick={(e) => {deleteProduct(id)}} >Delete</button>
     </div>
   );
 }
