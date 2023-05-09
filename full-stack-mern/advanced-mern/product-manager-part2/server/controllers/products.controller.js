@@ -43,6 +43,7 @@ module.exports.createNewProduct = (req, res) => {
     })
     .catch((err) => {
       res.json({ message: 'Something went wrong', error: err })
+      res.status(400).json(err)
     });}
 
 module.exports.updateProduct = (req, res) => {
