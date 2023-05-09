@@ -1,27 +1,30 @@
-import React, {useEffect} from 'react'
-import {Link} from "react-router-dom"
+import React, {useEffect, useState} from 'react';
+import {Link} from "react-router-dom";
 import axios from 'axios';
+import DeleteButton from './DeleteButton';
+
 const ProductList = (props) => {
-  const {removeFromDom, product, setProduct} = props;
+  const product = props;
+  // const [product, setProduct] = useState([]);
+
+  // useEffect(()=>{
+  //   axios.get("http://localhost:8000/api/products/find/all")
+  //     .then((res)=>{
+  //       console.log(res.data.products);
+  //       setProduct(res.data.products);
+  //     })
+  //     .catch(err=>console.log(err))
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [])
   
-  useEffect(()=>{
-    axios.get("http://localhost:8000/api/products/find/all")
-      .then((res)=>{
-        console.log(res.data.products);
-        setProduct(res.data.products);
-      })
-      .catch(err=>console.log(err))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-  
-  const deleteProduct = (id) => {
-    axios.delete(`http://localhost:8000/api/products/delete/${id}`)
-      .then(res => {
-        window.location.reload(false)
-        removeFromDom(id)
-      })
-      .catch(err=>console.log(err))
-  }
+  // const deleteProduct = (id) => {
+  //   axios.delete(`http://localhost:8000/api/products/delete/${id}`)
+  //     .then(res => {
+  //       window.location.reload(false)
+  //       removeFromDom(id)
+  //     })
+  //     .catch(err=>console.log(err))
+  // }
 
   return (
     <div>
@@ -31,7 +34,7 @@ const ProductList = (props) => {
           <h5 className='productDetails' key={index}>
             <Link to={`/product/${item._id}`}>{item.name}</Link>
             <Link className='productItem' to={`/product/edit/${item._id}`}>Edit</Link>
-            <button className='productItem' onClick={(e) => {deleteProduct(item._id)}} >Delete</button>
+            <DeleteButton productId={item._id} />
           </h5>
         )})
       }

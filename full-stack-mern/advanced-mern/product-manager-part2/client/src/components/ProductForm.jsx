@@ -1,30 +1,31 @@
 import React, { useState } from 'react'
-import axios from 'axios';
+// import axios from 'axios';
 const ProductForm= (props) => {
-  const {product, setProduct} = props;
+  const {placeholderName, placeholderPrice, placeholderDescription, onSubmission} = props;
 
-  const [ name, setName ] = useState("");
-  const [ price, setPrice ] = useState(0);
-  const [ description, setDescription ] = useState("");
+  const [ name, setName ] = useState(placeholderName);
+  const [ price, setPrice ] = useState(placeholderPrice);
+  const [ description, setDescription ] = useState(placeholderDescription);
   // const [submissionStatus, setSubmissionStatus] = useState();
 
   const onSubmitHandler = (e) => {
-  e.preventDefault();
-  // setSubmissionStatus(true);
-  //make a post request to create a new product
-  axios.post('http://localhost:8000/api/products/create', {
-    name,
-    price,
-    description
-  })
-    .then(res=>{
-      // console.log(res);
-      // console.log(res.data);
-      window.location.reload(false)
-      setProduct([...product, res.data])
-    })
-    .catch(err=>console.log(err))
-}
+    e.preventDefault();
+    onSubmission({name, price, description})
+    // setSubmissionStatus(true);
+    //make a post request to create a new product
+    // axios.post('http://localhost:8000/api/products/create', {
+    //   name,
+    //   price,
+    //   description
+    // })
+      // .then(res=>{
+      //   // console.log(res);
+      //   // console.log(res.data);
+      //   window.location.reload(false)
+      //   setProduct([...product, res.data])
+      // })
+      // .catch(err=>console.log(err))
+  }
 
   return (
     // <div>
@@ -39,15 +40,15 @@ const ProductForm= (props) => {
         <form onSubmit={onSubmitHandler}>
           <h5>
             <label htmlFor="name">Name: </label>
-            <input type="text" name='name' onChange={(e) => setName(e.target.value)}/>
+            <input type="text" name='name' value={name} onChange={(e) => setName(e.target.value)}/>
           </h5>
           <h5>
             <label htmlFor="price">Price: </label>
-            <input type="number" name='price' onChange={(e) => setPrice(e.target.value)}/>
+            <input type="number" name='price' value={price} onChange={(e) => setPrice(e.target.value)}/>
           </h5>
           <h5>
             <label htmlFor="description">Description: </label>
-            <input type="text" name='description' onChange={(e) => setDescription(e.target.value)}/>
+            <input type="text" name='description' value={description} onChange={(e) => setDescription(e.target.value)}/>
           </h5>
           <input type="submit"/>
         </form>
