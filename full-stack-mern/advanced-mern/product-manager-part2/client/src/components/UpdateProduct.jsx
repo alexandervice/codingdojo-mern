@@ -35,7 +35,12 @@ const UpdateProduct = (props) => {
       })
       .catch(err => {
         console.log(err)
-        setErrors(err.response.data.errors)
+        const errorResponse = err.response.data.errors;
+        const errorArray = [];
+        for (const key of Object.keys(errorResponse)) {
+          errorArray.push(errorResponse[key].message)
+        }
+        setErrors(errorArray)
       })
   }
 
