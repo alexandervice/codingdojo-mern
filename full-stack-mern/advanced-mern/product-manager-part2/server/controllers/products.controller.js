@@ -41,10 +41,8 @@ module.exports.createNewProduct = (req, res) => {
     .then(newProduct => {
       res.json({ product: newProduct })
     })
-    .catch((err) => {
-      res.json({ message: 'Something went wrong', error: err })
-      res.status(400).json(err)
-    });}
+    .catch(err => res.status(400).json(err));
+  }
 
 module.exports.updateProduct = (req, res) => {
   Product.findOneAndUpdate(
@@ -55,9 +53,8 @@ module.exports.updateProduct = (req, res) => {
     .then(updatedProduct => {
       res.json({ product: updatedProduct })
     })
-    .catch((err) => {
-      res.json({ message: 'Something went wrong', error: err })
-    });}
+    .catch(err => res.status(400).json(err));
+  }
 
 module.exports.deleteProduct = (req, res) => {
   Product.deleteOne({ _id: req.params.id })

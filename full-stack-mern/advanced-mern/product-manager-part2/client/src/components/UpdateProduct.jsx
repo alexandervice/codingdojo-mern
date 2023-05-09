@@ -41,6 +41,7 @@ const UpdateProduct = (props) => {
           errorArray.push(errorResponse[key].message)
         }
         setErrors(errorArray)
+        console.log(errors)
       })
   }
 
