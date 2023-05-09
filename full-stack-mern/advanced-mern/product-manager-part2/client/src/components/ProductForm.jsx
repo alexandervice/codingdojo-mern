@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 // import axios from 'axios';
 const ProductForm= (props) => {
-  const {placeholderName, placeholderPrice, placeholderDescription, onSubmission} = props;
+  const {placeholderName, placeholderPrice, placeholderDescription, onSubmission, errors} = props;
 
   const [ name, setName ] = useState(placeholderName);
   const [ price, setPrice ] = useState(placeholderPrice);
@@ -38,6 +38,9 @@ const ProductForm= (props) => {
       <div className='productForm'>
         <h3>Create a New Product</h3>
         <form onSubmit={onSubmitHandler}>
+          {errors.map((err, index) => 
+          <p className='error' key={index}>{err}</p>
+          )}
           <h5>
             <label htmlFor="name">Name: </label>
             <input type="text" name='name' value={name} onChange={(e) => setName(e.target.value)}/>

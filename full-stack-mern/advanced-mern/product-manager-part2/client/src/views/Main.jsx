@@ -4,7 +4,7 @@ import ProductForm from '../components/ProductForm';
 import ProductList from '../components/ProductList';
 const Main = (props) => {
   const [product, setProduct] = useState([]);
-  
+  const [errors, setErrors] = useState([]);
   useEffect(()=>{
     axios.get("http://localhost:8000/api/products/find/all")
       .then((res)=>{
@@ -28,12 +28,15 @@ const Main = (props) => {
         window.location.reload(false)
         setProduct([...product, res.data])
       })
-      .catch(err=>console.log(err))
+      .catch(err=> {
+        console.log(err)
+        setErrors(err.response.data.errors)
+      })
   }
   
   return (
     <div>
-      <ProductForm onSubmission={createProduct} placeholderName = "" placeholderPrice = {0} placeholderDescription = "" />
+      <ProductForm onSubmission={createProduct} placeholderName = "" placeholderPrice = {0} placeholderDescription = "" errors={errors}/>
         <hr/>
       <ProductList product={product} deleteProduct={deleteProduct}/>
     </div>

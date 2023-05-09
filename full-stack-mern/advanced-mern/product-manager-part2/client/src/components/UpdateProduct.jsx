@@ -7,6 +7,7 @@ import DeleteButton from './DeleteButton';
 const UpdateProduct = (props) => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
+  const [errors, setErrors] = useState([]);
   const [loaded, setLoaded] =useState(false)
   // const [ name, setName ] = useState("");
   // const [ price, setPrice ] = useState(0);
@@ -32,7 +33,10 @@ const UpdateProduct = (props) => {
         console.log(res);
         navigate("/"); // this will take us back to the Main.js
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        console.log(err)
+        setErrors(err.response.data.errors)
+      })
   }
 
   const deleteProduct = (id) => {
@@ -45,7 +49,7 @@ const UpdateProduct = (props) => {
       <h3>Update a Product</h3>
       {loaded? 
       <div>
-        <ProductForm onSubmission={updateProduct} placeholderName={product.name} placeholderPrice={product.price} placeholderDescription={product.description}/>
+        <ProductForm onSubmission={updateProduct} placeholderName={product.name} placeholderPrice={product.price} placeholderDescription={product.description} errors={errors}/>
         <DeleteButton productId={id} successCallback = {()=>deleteProduct(id)}/>
       </div>
       :null}

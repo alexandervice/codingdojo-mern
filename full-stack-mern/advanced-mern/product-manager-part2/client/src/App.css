@@ -6,6 +6,10 @@
   justify-content: center;
 }
 
+.error {
+  color: red;
+}
+
 .productDetails {
   display: flex;
   align-items: center;
