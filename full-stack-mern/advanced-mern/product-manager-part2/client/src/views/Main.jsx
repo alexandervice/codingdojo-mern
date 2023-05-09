@@ -16,12 +16,8 @@ const Main = (props) => {
   }, [])
 
   const deleteProduct = (id) => {
-    axios.delete(`http://localhost:8000/api/products/delete/${id}`)
-      .then(res => {
-        window.location.reload(false)
-        setProduct(product.filter(product => product.id !== id))
-      })
-      .catch(err=>console.log(err))
+    window.location.reload(false)
+    setProduct(product.filter(product => product.id !== id))
   }
 
   const createProduct = productData => {

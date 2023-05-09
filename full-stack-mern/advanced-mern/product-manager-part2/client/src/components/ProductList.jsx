@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Link} from "react-router-dom";
-import axios from 'axios';
+// import axios from 'axios';
 import DeleteButton from './DeleteButton';
 
 const ProductList = (props) => {
-  const product = props;
+  const {product, deleteProduct} = props;
   // const [product, setProduct] = useState([]);
 
   // useEffect(()=>{
@@ -34,7 +34,7 @@ const ProductList = (props) => {
           <h5 className='productDetails' key={index}>
             <Link to={`/product/${item._id}`}>{item.name}</Link>
             <Link className='productItem' to={`/product/edit/${item._id}`}>Edit</Link>
-            <DeleteButton productId={item._id} />
+            <DeleteButton productId={item._id} successCallback = {()=>deleteProduct(item._id)}/>
           </h5>
         )})
       }
