@@ -16,8 +16,8 @@ const Main = (props) => {
   }, [])
 
   const deleteProduct = (id) => {
-    window.location.reload(false)
-    setProduct(product.filter(product => product.id !== id))
+    window.location.reload(false);
+    setProduct(product.filter(product => product.id !== id));
   }
 
   const createProduct = productData => {

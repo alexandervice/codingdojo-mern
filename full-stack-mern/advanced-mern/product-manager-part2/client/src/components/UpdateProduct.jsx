@@ -34,11 +34,20 @@ const UpdateProduct = (props) => {
       })
       .catch(err => console.log(err))
   }
+
+  const deleteProduct = (id) => {
+    navigate("/");
+    setProduct(product.filter(product => product.id !== id));
+  }
+
   return (
     <div>
       <h3>Update a Product</h3>
       {loaded? 
-      <ProductForm onSubmission={updateProduct} placeholderName={product.name} placeholderPrice={product.price} placeholderDescription={product.description}/>
+      <div>
+        <ProductForm onSubmission={updateProduct} placeholderName={product.name} placeholderPrice={product.price} placeholderDescription={product.description}/>
+        <DeleteButton productId={id} successCallback = {()=>deleteProduct(id)}/>
+      </div>
       :null}
     </div>
   )
