@@ -18,11 +18,11 @@ const AuthorForm= (props) => {
         )}
         <h5>
           <label htmlFor="name">Name:</label>
-          <input type="text" name='name' value={name} onChange={(e) => setName(e.target.value)}/>
+          <input type="text" name='name' className='form-input mb-5 ml-2 py-0 px-1' value={name} onChange={(e) => setName(e.target.value)}/>
         </h5>
         <div className='formButtons'>
           <CancelButton/>
-          <input className='submit' type="submit"/>
+          <input className='bg-green-200 hover:bg-green-300 rounded px-1 border-solid border-2 border-green-400' type="submit"/>
         </div>
       </form>
     </div>

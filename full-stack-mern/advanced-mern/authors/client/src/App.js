@@ -5,13 +5,14 @@ import OneAuthor from './components/OneAuthor';
 import CreateAuthor from './components/CreateAuthor';
 import UpdateAuthor from './components/UpdateAuthor';
 import './App.css';
+import './index.css';
 
 
 
 function App() {
   return (
     <div className="App">
-      <h1>Favorite Authors</h1>
+      <h1 className='text-3xl font-bold underline mb-5'>Favorite Authors</h1>
       <BrowserRouter>
         <Routes>
           <Route element={<Main/>} path="/" default/>

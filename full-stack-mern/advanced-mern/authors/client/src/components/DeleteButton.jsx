@@ -23,7 +23,7 @@ const DeleteButton = (props) => {
       .catch(err=>console.log(err))
   }
   return (
-    <button className='authorItem delete' onClick={deleteAuthor}>
+    <button className='authorItem bg-red-200 hover:bg-red-300 rounded px-1 border-solid border-2 border-red-400' onClick={deleteAuthor}>
       Delete
     </button>
   )

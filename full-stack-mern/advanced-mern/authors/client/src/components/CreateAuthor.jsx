@@ -29,7 +29,7 @@ const CreateAuthor = (props) => {
 
   return (
     <div>
-      <h3>Add a new Author:</h3>
+      <h3 className=' font-bold'>Add a new Author:</h3>
       <div>
         <AuthorForm onSubmission={createAuthor} placeholderName={""} errors={errors}/>
       </div>

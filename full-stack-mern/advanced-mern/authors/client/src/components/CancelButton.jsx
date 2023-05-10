@@ -6,7 +6,7 @@ const CancelButton = (props) => {
     navigate("/");
   }
   return (
-    <button className='authorItem cancel' onClick={cancel}>Cancel</button>
+    <button className='authorItem mr-5 bg-yellow-200 hover:bg-yellow-300 rounded px-1 border-solid border-2 border-yellow-400' onClick={cancel}>Cancel</button>
   )
 }
 export default CancelButton;

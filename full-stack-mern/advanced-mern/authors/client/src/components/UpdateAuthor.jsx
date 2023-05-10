@@ -53,7 +53,7 @@ const UpdateAuthor = (props) => {
 
   return (
     <div>
-      <h3>Edit this Author:</h3>
+      <h3 className=' font-bold'>Edit this Author:</h3>
       {loaded? 
       <div>
         <AuthorForm onSubmission={updateAuthor} placeholderName={author.name} errors={errors}/>
@@ -61,7 +61,7 @@ const UpdateAuthor = (props) => {
       </div>:
       <div>
         <p>"We're sorry, but we could not find the author you are looking for. Would you like to add an author to our database?"</p>
-        <Link className='authorItem' to={"/author/create"}><button>Add a new Author</button></Link>
+        <Link className='authorItem ' to={"/author/create"}><button className='bg-purple-100 hover:bg-purple-200 rounded px-1 border-solid border-2 mt-3 border-purple-500 mb-5'>Add a new Author</button></Link>
       </div>}
     </div>
   )
