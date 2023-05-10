@@ -17,7 +17,7 @@ const Main = (props) => {
 
   const deleteAuthor = (id) => {
     window.location.reload(false);
-    setAuthorArray(authorArray.filter(author => author.id !== id));
+    // setAuthorArray(authorArray.filter(author => author.id !== id));
   }
 
   // const createAuthor = AuthorData => {

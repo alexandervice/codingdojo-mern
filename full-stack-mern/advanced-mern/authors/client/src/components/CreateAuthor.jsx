@@ -3,18 +3,19 @@ import axios from 'axios';
 import { useNavigate} from "react-router-dom";
 import AuthorForm from './AuthorForm';
 
-const UpdateProduct = (props) => {
+const CreateAuthor = (props) => {
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
 
   const createAuthor = AuthorData => {
     axios.post('http://localhost:8000/api/authors/create', AuthorData)
-      .then(res=>{
+    .then(res=>{
         console.log(res);
         console.log(res.data);
         navigate("/");
       })
       .catch(err=> {
+        console.log(AuthorData)
         console.log(err)
         const errorResponse = err.response.data.errors;
         const errorArray = [];
@@ -35,5 +36,5 @@ const UpdateProduct = (props) => {
     </div>
   )
 }
-export default UpdateProduct;
+export default CreateAuthor;
 

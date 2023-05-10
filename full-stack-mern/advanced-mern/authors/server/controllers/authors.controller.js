@@ -1,12 +1,12 @@
 const Author = require("../models/authors.model");
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
 
 // alternatively it can be done this way, so you don't need to type the module.exports everytime:
 module.exports = {
   // CREATE
   createNewAuthor: (req, res) => {
-    Author.create(req.body, { new: true, runValidators: true })
+    Author.create(req.body)
       .then(newAuthor => res.json({author: newAuthor}))
       .catch(err => res.status(400).json(err));
   },
@@ -20,10 +20,11 @@ module.exports = {
   findOneAuthor: (req, res) => {
     Author.findOne({ _id: req.params.id })
       .then(oneAuthor => res.json({author: oneAuthor}))
-      .catch(err => {
-        if (err instanceof mongoose.CastError)
-          return httpResponse.success(res, "Data was not found", null);
-        return res.json(err)});
+      .catch(err => res.json(err));
+      // .catch(err => {
+      //   if (err instanceof mongoose.CastError)
+      //     return httpResponse.success(res, "Data was not found", null);
+      //   return res.json(err)});
   },
   // UPDATE
   updateAuthor: (req, res) => {

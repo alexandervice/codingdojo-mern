@@ -16,6 +16,11 @@
   justify-content:flex-start;
 }
 
+.formButtons {
+  display: flex;
+  justify-content: center;
+}
+
 .add {
   background-color: rgb(253, 228, 255);
   margin-bottom: 15px;

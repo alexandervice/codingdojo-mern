@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useNavigate, useParams, Link } from "react-router-dom";
 import AuthorForm from './AuthorForm';
-import DeleteButton from './DeleteButton';
+// import DeleteButton from './DeleteButton';
 
 const UpdateAuthor = (props) => {
   const { id } = useParams();
@@ -17,12 +17,11 @@ const UpdateAuthor = (props) => {
   useEffect(() => {
     axios.get(`http://localhost:8000/api/authors/find/${id}`)
       .then(res => {
-        
-        res.data.author ?
-        setLoaded(false) :
         setAuthor(res.data.author)
-        setLoaded(true)
         console.log(res.data.author)
+        res.data.author ?
+        setLoaded(true) :
+        setLoaded(false)
       })
         .catch(err => console.log(err))
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -46,19 +45,19 @@ const UpdateAuthor = (props) => {
       })
   }
 
-  const deleteAuthor = (id) => {
-    navigate("/");
-    setAuthor(author.filter(author => author.id !== id));
-  }
+  // const deleteAuthor = (id) => {
+  //   console.log("deleted?")
+  //   // navigate("/");
+  //   // setAuthor(author.filter(author => author.id !== id));
+  // }
 
   return (
     <div>
       <h3>Edit this Author:</h3>
       {loaded? 
       <div>
-        {author.name}
         <AuthorForm onSubmission={updateAuthor} placeholderName={author.name} errors={errors}/>
-        <DeleteButton productId={id} successCallback = {()=>deleteAuthor(id)}/>
+        {/* <DeleteButton productId={id} successCallback = {()=>deleteAuthor(id)}/> */}
       </div>:
       <div>
         <p>"We're sorry, but we could not find the author you are looking for. Would you like to add an author to our database?"</p>

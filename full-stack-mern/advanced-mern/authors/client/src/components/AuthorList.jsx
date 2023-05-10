@@ -25,7 +25,7 @@ const AuthorList = (props) => {
               </td>
               <td>
                 <Link className='authorItem' to={`/author/edit/${author._id}`}><button className='edit'>Edit</button></Link>
-                <DeleteButton authorId={author._id} successCallback = {()=>deleteAuthor(author._id)}/>
+                <DeleteButton authorId={author._id} successCallback = {deleteAuthor}/>
               </td>
             </tr>
           )})
