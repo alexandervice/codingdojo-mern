@@ -13,11 +13,15 @@ const Main = (props) => {
       })
       .catch(err=>console.log(err))
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [authorArray.length])
+
+  // const updateAuthorArray = async () => {
+
+  // }
 
   const deleteAuthor = (id) => {
-    window.location.reload(false);
-    // setAuthorArray(authorArray.filter(author => author.id !== id));
+    // window.location.reload(false);
+    setAuthorArray(authorArray.filter(author => author.id !== id));
   }
 
   // const createAuthor = AuthorData => {
@@ -44,7 +48,6 @@ const Main = (props) => {
     <div>
       {/* <AuthorForm onSubmission={createAuthor} placeholderName = "" errors={errors}/>
         <hr/> */}
-      
       <AuthorList authorArray={authorArray} deleteAuthor={deleteAuthor}/>
     </div>
   )
