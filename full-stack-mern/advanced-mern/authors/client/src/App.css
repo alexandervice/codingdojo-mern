@@ -16,12 +16,26 @@
   justify-content:flex-start;
 }
 
+.add {
+  background-color: rgb(253, 228, 255);
+  margin-bottom: 15px;
+}
+
+.edit {
+  background-color: rgb(184, 226, 255);
+}
+
 .delete {
   background-color: lightcoral;
 }
 
+.submit {
+  background-color:rgb(205, 235, 217);
+}
+
 .cancel {
   background-color: bisque;
+  margin-right: 15px;
 }
 
 .authorItem {

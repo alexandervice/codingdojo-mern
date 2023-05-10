@@ -8,8 +8,8 @@ const Main = (props) => {
   useEffect(()=>{
     axios.get("http://localhost:8000/api/authors/find/all")
       .then((res)=>{
-        console.log(res.data);
-        setAuthorArray(res.data);
+        console.log(res.data.authors);
+        setAuthorArray(res.data.authors);
       })
       .catch(err=>console.log(err))
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -44,6 +44,7 @@ const Main = (props) => {
     <div>
       {/* <AuthorForm onSubmission={createAuthor} placeholderName = "" errors={errors}/>
         <hr/> */}
+      
       <AuthorList authorArray={authorArray} deleteAuthor={deleteAuthor}/>
     </div>
   )

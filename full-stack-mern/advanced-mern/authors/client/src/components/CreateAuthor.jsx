@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { useNavigate} from "react-router-dom";
-import ProductForm from './ProductForm';
+import AuthorForm from './AuthorForm';
 
 const UpdateProduct = (props) => {
   const [errors, setErrors] = useState([]);
@@ -10,8 +10,8 @@ const UpdateProduct = (props) => {
   const createAuthor = AuthorData => {
     axios.post('http://localhost:8000/api/authors/create', AuthorData)
       .then(res=>{
-        // console.log(res);
-        // console.log(res.data);
+        console.log(res);
+        console.log(res.data);
         navigate("/");
       })
       .catch(err=> {
@@ -30,7 +30,7 @@ const UpdateProduct = (props) => {
     <div>
       <h3>Add a new Author:</h3>
       <div>
-        <ProductForm onSubmission={createAuthor} placeholderName={""} errors={errors}/>
+        <AuthorForm onSubmission={createAuthor} placeholderName={""} errors={errors}/>
       </div>
     </div>
   )

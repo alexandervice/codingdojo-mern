@@ -17,11 +17,12 @@ const UpdateAuthor = (props) => {
   useEffect(() => {
     axios.get(`http://localhost:8000/api/authors/find/${id}`)
       .then(res => {
-        // setName(res.data.product.name);
-        // setPrice(res.data.product.price);
-        // setDescription(res.data.product.description);
-        setAuthor(res.data)
+        
+        res.data.author ?
+        setLoaded(false) :
+        setAuthor(res.data.author)
         setLoaded(true)
+        console.log(res.data.author)
       })
         .catch(err => console.log(err))
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -55,6 +56,7 @@ const UpdateAuthor = (props) => {
       <h3>Edit this Author:</h3>
       {loaded? 
       <div>
+        {author.name}
         <AuthorForm onSubmission={updateAuthor} placeholderName={author.name} errors={errors}/>
         <DeleteButton productId={id} successCallback = {()=>deleteAuthor(id)}/>
       </div>:
