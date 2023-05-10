@@ -1,31 +1,23 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {useNavigate, useParams, Link} from "react-router-dom";
+import DeleteButton from "./DeleteButton";
 
-const OneProduct = (props) => {
-  const [product, setProduct] = useState({});
+const OneAuthor = (props) => {
+  const [author, setAuthor] = useState({});
   const {id} = useParams();
   const navigate = useNavigate();
 
-  const removeFromDom = id => {
-    setProduct(product.filter(product => product.id !== id))
-  }
-
-  const deleteProduct = (id) => {
-    axios.delete(`http://localhost:8000/api/products/delete/${id}`)
-      .then(res => {
-        navigate("/");
-        removeFromDom(id)
-        
-      })
-      .catch(err=>console.log(err))
+  const deleteAuthor = (id) => {
+    navigate("/");
+    setAuthor(author.filter(author => author.id !== id));
   }
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/products/find/${id}`)
+    axios.get(`http://localhost:8000/api/authors/find/${id}`)
       .then( res => {
-        console.log(res.data.product);
-        setProduct(res.data.product);
+        console.log(res.data);
+        setAuthor(res.data);
       })
       .catch( err=>console.log(err) );
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -36,13 +28,11 @@ const OneProduct = (props) => {
       <h2>
       <Link to={"/"}>Home</Link>
       </h2>
-      <h3>Product Name: {product.name}</h3>
-      <h5>Price: {product.price}</h5>
-      <h5>Description: {product.description}</h5>
-      <Link className='productItem' to={`/product/edit/${id}`}>Edit</Link>
-      <button className='productItem' onClick={(e) => {deleteProduct(id)}} >Delete</button>
+      <h3>Author Name: {author.name}</h3>
+      <Link className='authorItem' to={`/product/edit/${id}`}><button>Edit</button></Link>
+      <DeleteButton authorId={id} successCallback = {()=>deleteAuthor(id)}/>
     </div>
   );
 }
 
-export default OneProduct;
+export default OneAuthor;

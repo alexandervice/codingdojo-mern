@@ -15,7 +15,10 @@ const AuthorList = (props) => {
         authorArray.map((author, index)=>{
         return(
           <tr>
-            <td><Link to={`/author/${author._id}`}>{author.name}</Link></td>
+            <td>
+              {/* <Link to={`/author/${author._id}`}>{author.name}</Link> */}
+              {author.name}
+            </td>
             <td>
               <Link className='authorItem' to={`/author/edit/${author._id}`}><button>Edit</button></Link>
               <DeleteButton authorId={author._id} successCallback = {()=>deleteAuthor(author._id)}/>

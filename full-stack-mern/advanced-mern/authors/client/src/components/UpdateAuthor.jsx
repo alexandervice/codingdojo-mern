@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { useNavigate, useParams } from "react-router-dom";
-import ProductForm from './ProductForm';
+import { useNavigate, useParams, Link } from "react-router-dom";
+import AuthorForm from './AuthorForm';
 import DeleteButton from './DeleteButton';
 
-const UpdateProduct = (props) => {
+const UpdateAuthor = (props) => {
   const { id } = useParams();
-  const [product, setProduct] = useState({});
+  const [author, setAuthor] = useState({});
   const [errors, setErrors] = useState([]);
   const [loaded, setLoaded] =useState(false)
   // const [ name, setName ] = useState("");
@@ -15,20 +15,20 @@ const UpdateProduct = (props) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/products/find/${id}`)
+    axios.get(`http://localhost:8000/api/authors/find/${id}`)
       .then(res => {
         // setName(res.data.product.name);
         // setPrice(res.data.product.price);
         // setDescription(res.data.product.description);
-        setProduct(res.data.product)
+        setAuthor(res.data)
         setLoaded(true)
       })
         .catch(err => console.log(err))
         // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const updateProduct = productData => {
-    axios.patch(`http://localhost:8000/api/products/update/${id}`, productData)
+  const updateAuthor = authorData => {
+    axios.patch(`http://localhost:8000/api/authors/update/${id}`, authorData)
       .then(res => {
         console.log(res);
         navigate("/"); // this will take us back to the Main.js
@@ -45,22 +45,25 @@ const UpdateProduct = (props) => {
       })
   }
 
-  const deleteProduct = (id) => {
+  const deleteAuthor = (id) => {
     navigate("/");
-    setProduct(product.filter(product => product.id !== id));
+    setAuthor(author.filter(author => author.id !== id));
   }
 
   return (
     <div>
-      <h3>Update a Product</h3>
+      <h3>Edit this Author:</h3>
       {loaded? 
       <div>
-        <ProductForm onSubmission={updateProduct} placeholderName={product.name} placeholderPrice={product.price} placeholderDescription={product.description} errors={errors}/>
-        <DeleteButton productId={id} successCallback = {()=>deleteProduct(id)}/>
-      </div>
-      :null}
+        <AuthorForm onSubmission={updateAuthor} placeholderName={author.name} errors={errors}/>
+        <DeleteButton productId={id} successCallback = {()=>deleteAuthor(id)}/>
+      </div>:
+      <div>
+        <p>"We're sorry, but we could not find the author you are looking for. Would you like to add an author to our database?"</p>
+        <Link className='authorItem' to={"/author/create"}><button>Add a new Author</button></Link>
+      </div>}
     </div>
   )
 }
-export default UpdateProduct;
+export default UpdateAuthor;
 
