@@ -10,8 +10,8 @@ const AuthorList = (props) => {
       <table className='table-auto border border-slate-500  border border-slate-500 font-semibold text-slate-900 text-left'>
         <thead className='bg-slate-100'>
           <tr>
-            <th className='p-2'>Author</th>
-            <th className='p-2'>Actions Available</th>
+            <th className='py-2 px-3'>Author</th>
+            <th className='py-2 px-3'>Actions Available</th>
           </tr>
         </thead>
         <tbody>
