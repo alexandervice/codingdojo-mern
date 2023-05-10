@@ -12,7 +12,7 @@ module.exports = {
   },
   // READ ALL
   findAllAuthors: (req, res) => {
-    Author.find()
+    Author.find().sort({name:1})
       .then(allAuthors => res.json({authors: allAuthors}))
       .catch(err => res.json(err));
   },
