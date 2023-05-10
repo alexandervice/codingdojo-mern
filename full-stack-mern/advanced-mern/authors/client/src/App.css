@@ -10,17 +10,25 @@
   color: red;
 }
 
-.productDetails {
+.authorDetails {
   display: flex;
   align-items: center;
   justify-content:flex-start;
 }
 
-.productItem {
+.delete {
+  background-color: lightcoral;
+}
+
+.cancel {
+  background-color: bisque;
+}
+
+.authorItem {
   margin-left: 15px;
 }
 
-.productForm {
+.authorForm {
   text-align: start;
   margin: 10px;
 }
