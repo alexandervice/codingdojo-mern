@@ -10,7 +10,7 @@ const DeleteButton = (props) => {
       .catch(err=>console.log(err))
   }
   return (
-    <button className='productItem' onClick={deleteAuthor}>
+    <button className='authorItem delete' onClick={deleteAuthor}>
       Delete
     </button>
   )
