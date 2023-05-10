@@ -10,7 +10,6 @@ const CreateAuthor = (props) => {
   const createAuthor = AuthorData => {
     axios.post('http://localhost:8000/api/authors/create', AuthorData)
     .then(res=>{
-        console.log(res);
         console.log(res.data);
         navigate("/");
       })

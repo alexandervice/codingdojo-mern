@@ -8,7 +8,7 @@ const Main = (props) => {
   useEffect(()=>{
     axios.get("http://localhost:8000/api/authors/find/all")
       .then((res)=>{
-        console.log(res.data.authors);
+        // console.log(res.data.authors);
         setAuthorArray(res.data.authors);
       })
       .catch(err=>console.log(err))
