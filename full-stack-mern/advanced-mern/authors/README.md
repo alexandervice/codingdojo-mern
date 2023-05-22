@@ -5,3 +5,5 @@ This is also my first attempt at using tailwind in a react project
 
 
 [![authors home](https://github.com/alexandervice/codingdojo-mern/blob/main/full-stack-mern/advanced-mern/authors/client/src/images/authors-home.png)]
+[![authors create](https://github.com/alexandervice/codingdojo-mern/blob/main/full-stack-mern/advanced-mern/authors/client/src/images/authors-create.png)]
+[![authors edit](https://github.com/alexandervice/codingdojo-mern/blob/main/full-stack-mern/advanced-mern/authors/client/src/images/authors-edit.png)]
