@@ -3,4 +3,5 @@ This is a full stack MERN (mongoose, express, react, node) web app that allows f
 
 This is also my first attempt at using tailwind in a react project
 
-(/client/src/images/authors-home.png?raw=true)
+()
+[![authors home](https://github.com/alexandervice/codingdojo-mern/main/full-stack-mern/advanced-mern/authors/client/src/images/authors-home.png?raw=true)]
