@@ -6,14 +6,14 @@ import UpdateProduct from './components/UpdateProduct';
 import './App.css';
 
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       <h1>Product Manager</h1>
       <BrowserRouter>
         <Routes>
           {/* this is the default path */}
-          <Route element={<Main/>} path="/" default/>
+          <Route element={<Main/>} path="/"/>
           <Route element={<OneProduct/>} path="/product/:id"/>
           <Route element={<UpdateProduct/>} path="/product/edit/:id"/>
         </Routes>
